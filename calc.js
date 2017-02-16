@@ -37,15 +37,12 @@ function pemdas(finalAnswer) {
 
 ////////// CLICK HANDLER //////////////////
 function handleButtonClick(buttonValue) {
-	console.log('button value', buttonValue);
-	console.log('final answer', finalAnswer);
 
 	updateDisplay(buttonValue);
 	inputArray.push(buttonValue);
 
 	if (finalAnswer !== null && ((buttonValue === '+') || (buttonValue === '-') || (buttonValue === 'x') || (buttonValue === '*') || (buttonValue === '/'))) {
 		opDecider = inputArray[inputArray.length - 1];
-		console.log(opDecider);
 		numArray.push(finalAnswer);
 		inputArray = [];
 	}
@@ -53,7 +50,6 @@ function handleButtonClick(buttonValue) {
 	if ((buttonValue === '+') || (buttonValue === '-') || (buttonValue === 'x') || (buttonValue === '*') || (buttonValue === '/')) {
 		if (opDecider === null) {
 			opDecider = inputArray[inputArray.length - 1];
-			console.log('opDec orig ', opDecider);
 		}
 		inputArray.pop();
 		newValue = inputArray.join("");
@@ -68,10 +64,7 @@ function handleButtonClick(buttonValue) {
 			numArray.pop();
 		}
 
-		console.log('new val newValue2 ', newValue);
 		numArray.push(Number(newValue));
-		console.log('new val numArray2 ', numArray);
-		console.log(opDecider);
 		inputArray = [];
 		if (opDecider === '+') {
 			prepAddOps(numArray);
